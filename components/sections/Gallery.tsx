@@ -19,7 +19,7 @@ const TILES = [
   },
   {
     type: "video" as const,
-    src: "/hero-video.mp4",
+    src: "https://base44.app/api/apps/6964abb7f5eb650a639257de/files/mp/public/6964abb7f5eb650a639257de/7c1f79c58_Flying_drone_from_image_to_202605091023.mp4",
     label: "Drone · Live Reveal",
     span: "md:col-span-2",
   },

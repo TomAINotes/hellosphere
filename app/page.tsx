@@ -14,7 +14,7 @@ import Footer from '@/components/sections/Footer';
 
 /* ─────────────────────────  EDIT HERO  ───────────────────────── */
 const HERO = {
-  videoSrc:    '/hero-video.mp4',
+  videoSrc:    'https://base44.app/api/apps/6964abb7f5eb650a639257de/files/mp/public/6964abb7f5eb650a639257de/7c1f79c58_Flying_drone_from_image_to_202605091023.mp4',
   bgImageSrc:  '/hero-bg.png',
 };
 /* ──────────────────────────────────────────────────────────────── */
