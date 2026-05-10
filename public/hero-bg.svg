@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1428"/>
+      <stop offset="50%" stop-color="#1a2c4f"/>
+      <stop offset="100%" stop-color="#050a14"/>
+    </linearGradient>
+    <radialGradient id="r" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#3a5a8a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect width="1920" height="1080" fill="url(#r)"/>
+  <text x="960" y="540" text-anchor="middle" fill="#E5C07B" font-family="serif" font-size="60" letter-spacing="20">SHON FLASH</text>
+  <text x="960" y="600" text-anchor="middle" fill="#ffffff60" font-family="sans-serif" font-size="20">save your background as public/hero-bg.png</text>
+</svg>

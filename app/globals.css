@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Premium CTA glow */
+.glow-ring {
+  box-shadow:
+    0 0 0 1px rgba(229, 192, 123, 0.55),
+    0 10px 40px -10px rgba(229, 192, 123, 0.55),
+    inset 0 0 25px -10px rgba(255, 220, 150, 0.4);
+  transition: box-shadow 0.4s ease;
+}
+.glow-ring:hover {
+  box-shadow:
+    0 0 0 1px rgba(229, 192, 123, 0.85),
+    0 15px 60px -10px rgba(229, 192, 123, 0.7),
+    inset 0 0 35px -8px rgba(255, 220, 150, 0.55);
+}
+
+/* Hide scrollbar (cleaner look) */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* ============================================================================
+ * Reusable section utilities — light luxury theme
+ * ========================================================================= */
+
+/* Glassmorphism panel — light variant */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(248, 248, 250, 0.65) 100%
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 30px 60px -30px rgba(0, 0, 0, 0.18),
+    0 8px 24px -12px rgba(0, 0, 0, 0.08);
+}
+
+.glass-strong {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(244, 244, 248, 0.85) 100%
+  );
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 40px 80px -30px rgba(0, 0, 0, 0.22);
+}
+
+/* Red laser glow halo */
+.laser-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 42, 77, 0.6),
+    0 10px 50px -8px rgba(255, 42, 77, 0.45),
+    inset 0 0 28px -10px rgba(255, 85, 119, 0.25);
+}
+.laser-glow-soft {
+  box-shadow:
+    0 0 40px -8px rgba(255, 42, 77, 0.3),
+    inset 0 0 24px -10px rgba(255, 85, 119, 0.12);
+}
+
+/* Chrome / metallic gradient text — adapted for light bg */
+.chrome-text {
+  background: linear-gradient(
+    180deg,
+    #1a1a1c 0%,
+    #4a4a52 40%,
+    #1a1a1c 70%,
+    #6a6a72 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow used above section headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: rgba(170, 130, 50, 0.95); /* darker gold for contrast on white */
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(170, 130, 50, 0.6);
+}
+
+/* Animated laser line — for section dividers */
+.laser-line {
+  position: relative;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+.laser-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 42, 77, 0.95) 50%,
+    transparent 100%
+  );
+  animation: laser-sweep 8s linear infinite;
+}
+@keyframes laser-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Subtle grid background pattern — dark lines on white */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Section padding shorthand */
+.section {
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+/* ============================================================================
+ * Loader-2 — animated SVG trio used in the SHON FLASH loading screen.
+ * ========================================================================= */
+
+.loader {
+  --path: rgba(255, 255, 255, 0.18);
+  --dot: #e5c07b;
+  --duration: 3s;
+
+  width: 44px;
+  height: 44px;
+  position: relative;
+  display: inline-block;
+}
+
+/* On a light surface, darken the path strokes so the shapes are visible. */
+.loading-light .loader {
+  --path: rgba(0, 0, 0, 0.22);
+}
+
+.loader::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  display: block;
+  background: var(--dot);
+  box-shadow: 0 0 12px 2px rgba(229, 192, 123, 0.55);
+  top: 37px;
+  left: 19px;
+  transform: translate(-18px, -18px);
+  animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.loader svg rect,
+.loader svg polygon,
+.loader svg circle {
+  fill: none;
+  stroke: var(--path);
+  stroke-width: 10px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.loader svg polygon {
+  stroke-dasharray: 145 76 145 76;
+  stroke-dashoffset: 0;
+  animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg rect {
+  stroke-dasharray: 192 64 192 64;
+  stroke-dashoffset: 0;
+  animation: pathRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg circle {
+  stroke-dasharray: 150 50 150 50;
+  stroke-dashoffset: 75;
+  animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader.triangle {
+  width: 48px;
+}
+.loader.triangle::before {
+  left: 21px;
+  transform: translate(-10px, -18px);
+  animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+@keyframes pathTriangle {
+  33%  { stroke-dashoffset: 74; }
+  66%  { stroke-dashoffset: 147; }
+  100% { stroke-dashoffset: 221; }
+}
+@keyframes pathRect {
+  25%  { stroke-dashoffset: 64; }
+  50%  { stroke-dashoffset: 128; }
+  75%  { stroke-dashoffset: 192; }
+  100% { stroke-dashoffset: 256; }
+}
+@keyframes pathCircle {
+  25%  { stroke-dashoffset: 125; }
+  50%  { stroke-dashoffset: 175; }
+  75%  { stroke-dashoffset: 225; }
+  100% { stroke-dashoffset: 275; }
+}
+@keyframes dotTriangle {
+  33%  { transform: translate(0, 0); }
+  66%  { transform: translate(10px, -18px); }
+  100% { transform: translate(-10px, -18px); }
+}
+@keyframes dotRect {
+  25%  { transform: translate(0, 0); }
+  50%  { transform: translate(18px, -18px); }
+  75%  { transform: translate(0, -36px); }
+  100% { transform: translate(-18px, -18px); }
+}
